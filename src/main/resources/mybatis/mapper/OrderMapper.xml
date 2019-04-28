@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bxl.demo.dao.OrderDao" >
+
+    <insert id="saveToOne" parameterType="com.bxl.demo.entity.Order" useGeneratedKeys="true" keyProperty="orderId">
+        insert into t_order(`order_id`, `user_id`)
+        values (#{orderId}, #{userId})
+    </insert>
+
+    <select id="findAllData" resultType="com.bxl.demo.entity.Order">
+        SELECT
+        `order_id` orderId,
+        `user_id` userId
+        FROM t_order
+    </select>
+
+
+</mapper>
