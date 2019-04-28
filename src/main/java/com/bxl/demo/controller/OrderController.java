@@ -1,5 +1,6 @@
 package com.bxl.demo.controller;
 
+import com.bxl.demo.config.GeneratorOnleKey;
 import com.bxl.demo.dao.OrderDao;
 import com.bxl.demo.entity.Order;
 import io.shardingsphere.core.keygen.KeyGenerator;
@@ -22,7 +23,7 @@ public class OrderController {
     @Autowired
     private OrderDao orderDao;
     @Autowired
-    private KeyGenerator keyGenerator;
+    private GeneratorOnleKey keyGenerator;
 
     @RequestMapping(value = "/add", method = GET)
     @ResponseBody
@@ -34,7 +35,7 @@ public class OrderController {
 //            orderDao.saveToOne(order);
 //        }
         Order order = new Order();
-        order.setUserId(12L);
+        order.setUserId(13L);
         order.setOrderId(keyGenerator.generateKey().longValue());
         orderDao.saveToOne(order);
         return "success";
